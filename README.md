@@ -1,10 +1,3 @@
----
-layout: post
-title: Survey of licenses used by Rust projects on crates.io
-description: In which I figure out which licenses Rustaceans use the most
-slug: crates-io-license-survey
----
-
 So I am working on a feature that I hope to get merged into `cargo`,
 Rusts package manager. The feature would allow a developer to specify a
 license to add to a new project (or all new projects), and automatically
