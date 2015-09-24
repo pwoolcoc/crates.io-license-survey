@@ -17,10 +17,10 @@ So my first step was to collect some data from `crates.io`, the central reposito
 for Rust crates. You can easily get an index of all the crates on the site by
 using the index that the Cargo team has on github:
 
-{% highlight bash %}
+```bash
 $ git clone https://github.com/crates.io-index
 $ cd crates.io-index
-{% endhighlight %}
+```
 
 Now, lets query the `crates.io` API for information about these crates.
 I ended up saving the information to a file, though you don't necessarily have to
@@ -30,7 +30,7 @@ crates.io _will_ cut you off if you make too many requests in too short a time).
 
 Here is the script I used to gather the data:
 
-{% highlight python %}
+```python
 import csv
 import os
 import time
@@ -70,12 +70,12 @@ with open("license.csv", "w", newline="") as csvfile:
         # The crates.io API will cut you off if you
         # don't throttle your requests a bit
         time.sleep(0.5)
-{% endhighlight %}
+```
 
 Ok, so now we have a nice `.csv` file with the name of the crate and the license string it
 uses. Now, lets re-read that information back in, and count licenses:
 
-{% highlight python %}
+```python
 import csv
 from collections import Counter
 license_counter = Counter()
@@ -94,7 +94,7 @@ with open("license.csv") as csvfile:
 
 for x, n in license_counter.most_common():
     print("{x:30}{n}".format(x=x, n=n))
-{% endhighlight %}
+```
 
 ## Results
 
