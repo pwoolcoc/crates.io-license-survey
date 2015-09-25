@@ -17,7 +17,7 @@ def walk_index(path):
 
 def get_license(crate_name):
     req = requests.get(CRATE_URL.format(crate_name=crate_name))
-    if req.status_code / 100 == 2:
+    if req.status_code == requests.codes.ok:
         try:
             j = req.json()
             crate = j['crate']
